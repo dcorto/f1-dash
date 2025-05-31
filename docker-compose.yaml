@@ -6,7 +6,7 @@ services:
       - "9206:4000"
     environment:
       - ORIGIN=https://f1-dash.arpaneting.es
-      - LIVE_BACKEND_ADDRESS=0.0.0.0:9206
+      - LIVE_BACKEND_ADDRESS=0.0.0.0:4000
       - RUST_LOG="live=debug"
 
   api:
@@ -16,7 +16,7 @@ services:
       - "9207:4001"
     environment:
       - ORIGIN=https://f1-dash.arpaneting.es
-      - API_BACKEND_ADDRESS=0.0.0.0:9207
+      - API_BACKEND_ADDRESS=0.0.0.0:4001
       - RUST_LOG="api=debug"
 
   frontend:
