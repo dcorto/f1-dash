@@ -31,7 +31,7 @@ services:
       context: ./dash/
     restart: unless-stopped
     ports:
-      - 9204:3000
+      - 9205:3000
     depends_on:
       - api
       - live
