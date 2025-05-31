@@ -15,7 +15,7 @@ services:
     ports:
       - 9206:4001
     environment:
-      - ORIGIN=http://localhost:3000
+      - ORIGIN=https://f1-dash.arpaneting.es
       - API_BACKEND_ADDRESS=api:4001
       - RUST_LOG="api=debug"
 
