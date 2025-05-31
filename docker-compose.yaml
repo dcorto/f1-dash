@@ -5,8 +5,8 @@ services:
       context: .
       target: live
     restart: unless-stopped
-#    ports:
-#      - 4000:4000
+    ports:
+      - 4000:4000
     environment:
       - ORIGIN=http://localhost:3000
       - LIVE_BACKEND_ADDRESS=0.0.0.0:4000
@@ -18,8 +18,8 @@ services:
       context: .
       target: api
     restart: unless-stopped
-#    ports:
-#      - 4001:4001
+    ports:
+      - 4001:4001
     environment:
       - ORIGIN=http://localhost:3000
       - API_BACKEND_ADDRESS=0.0.0.0:4001
