@@ -1,22 +1,16 @@
 services:
   live:
     image: ghcr.io/slowlydev/f1-dash-live:latest
-    build:
-      context: .
-      target: live
     restart: unless-stopped
     ports:
       - 4000:4000
     environment:
-      - ORIGIN=http://localhost:3000
+      - ORIGIN=http://localhost:9205
       - LIVE_BACKEND_ADDRESS=0.0.0.0:4000
       - RUST_LOG="live=debug"
 
   api:
     image: ghcr.io/slowlydev/f1-dash-api:latest
-    build:
-      context: .
-      target: api
     restart: unless-stopped
     ports:
       - 4001:4001
@@ -27,8 +21,6 @@ services:
 
   frontend:
     image: ghcr.io/slowlydev/f1-dash:latest
-    build:
-      context: ./dash/
     restart: unless-stopped
     ports:
       - 9205:3000
