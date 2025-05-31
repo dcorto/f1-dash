@@ -9,7 +9,7 @@ services:
 #      - 4000:4000
     environment:
       - ORIGIN=http://localhost:3000
-      - LIVE_BACKEND_ADDRESS=live:4000
+      - LIVE_BACKEND_ADDRESS=0.0.0.0:4000
       - RUST_LOG="live=debug"
 
   api:
@@ -22,7 +22,7 @@ services:
 #      - 4001:4001
     environment:
       - ORIGIN=http://localhost:3000
-      - API_BACKEND_ADDRESS=api:4001
+      - API_BACKEND_ADDRESS=0.0.0.0:4001
       - RUST_LOG="api=debug"
 
   frontend:
