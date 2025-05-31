@@ -6,7 +6,7 @@ services:
       - 9206:4000
     environment:
       - ORIGIN=https://f1-dash.arpaneting.es
-      - LIVE_BACKEND_ADDRESS=live:4000
+      - LIVE_BACKEND_ADDRESS=https://api-f1-dash.arpaneting.es
       - RUST_LOG="live=debug"
 
   api:
