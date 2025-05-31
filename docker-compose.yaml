@@ -2,10 +2,10 @@ services:
   live:
     image: ghcr.io/slowlydev/f1-dash-live:latest
     restart: unless-stopped
-    ports:
-      - 4000:4000
+    #ports:
+    #  - 4000:4000
     environment:
-      - ORIGIN=http://localhost:9205
+      - ORIGIN=https://f1-dash.arpaneting.es
       - LIVE_BACKEND_ADDRESS=live:4000
       - RUST_LOG="live=debug"
 
@@ -13,7 +13,7 @@ services:
     image: ghcr.io/slowlydev/f1-dash-api:latest
     restart: unless-stopped
     ports:
-      - 4001:4001
+      - 9206:4001
     environment:
       - ORIGIN=http://localhost:3000
       - API_BACKEND_ADDRESS=api:4001
@@ -28,7 +28,7 @@ services:
       - api
       - live
     environment:
-      - NEXT_PUBLIC_LIVE_URL=http://localhost:4000
+      - NEXT_PUBLIC_LIVE_URL=https://api-f1-dash.arpaneting.es
       - API_URL=http://api:4001
       - DISABLE_IFRAME=1
       - TRACKING_ID=G-3ZKX0JY1QW
