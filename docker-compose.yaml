@@ -5,11 +5,11 @@ services:
       context: .
       target: live
     restart: unless-stopped
-    ports:
-      - 4000:4000
+#    ports:
+#      - 4000:4000
     environment:
       - ORIGIN=http://localhost:3000
-      - LIVE_BACKEND_ADDRESS=0.0.0.0:4000
+      - LIVE_BACKEND_ADDRESS=live:4000
       - RUST_LOG="live=debug"
 
   api:
@@ -18,11 +18,11 @@ services:
       context: .
       target: api
     restart: unless-stopped
-    ports:
-      - 4001:4001
+#    ports:
+#      - 4001:4001
     environment:
       - ORIGIN=http://localhost:3000
-      - API_BACKEND_ADDRESS=0.0.0.0:4001
+      - API_BACKEND_ADDRESS=api:4001
       - RUST_LOG="api=debug"
 
   frontend:
@@ -31,7 +31,7 @@ services:
       context: ./dash/
     restart: unless-stopped
     ports:
-      - 3000:3000
+      - 9204:3000
     depends_on:
       - api
       - live
