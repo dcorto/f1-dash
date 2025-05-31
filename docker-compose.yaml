@@ -12,9 +12,11 @@ services:
   api:
     image: ghcr.io/slowlydev/f1-dash-api:latest
     restart: unless-stopped
+    ports:
+      - "9207:4001"
     environment:
       - ORIGIN=https://f1-dash.arpaneting.es
-      - API_BACKEND_ADDRESS=api:4001
+      - API_BACKEND_ADDRESS=0.0.0.0:9207
       - RUST_LOG="api=debug"
 
   frontend:
