@@ -2,8 +2,8 @@ services:
   live:
     image: ghcr.io/slowlydev/f1-dash-live:latest
     restart: unless-stopped
-    #ports:
-    #  - 4000:4000
+    ports:
+      - 9206:4000
     environment:
       - ORIGIN=https://f1-dash.arpaneting.es
       - LIVE_BACKEND_ADDRESS=live:4000
@@ -12,8 +12,8 @@ services:
   api:
     image: ghcr.io/slowlydev/f1-dash-api:latest
     restart: unless-stopped
-    ports:
-      - 9206:4001
+#    ports:
+#      - 4001:4001
     environment:
       - ORIGIN=https://f1-dash.arpaneting.es
       - API_BACKEND_ADDRESS=api:4001
